@@ -7,8 +7,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.string :name,            null: false
       t.integer :shipping_cost,  null: false
       t.integer :billing_amount, null: false
-      enum payment_method: { credit_card: 0, transfer: 1 }
-      enum order_status: { waitingfordeposit: 0, payment_confirmation: 1, production: 2, readyto_ship: 3, sent: 4 }
+      
 
       t.timestamps null: false
     end
