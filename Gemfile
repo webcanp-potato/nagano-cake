@@ -73,3 +73,4 @@ gem 'font-awesome-sass', '~> 5.13'
 
 gem 'kaminari'
 gem 'pry-byebug'
+gem "enum_help"
