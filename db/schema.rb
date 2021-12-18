@@ -10,8 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2021_12_16_070842) do
 
-ActiveRecord::Schema.define(version: 2021_12_16_052441) do
+  create_table "addresses", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.string "name", null: false
+    t.string "post_code", null: false
+    t.string "address", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string "email", null: false
@@ -24,6 +32,14 @@ ActiveRecord::Schema.define(version: 2021_12_16_052441) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "cart_products", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "costomer_id", null: false
+    t.integer "product_id", null: false
+    t.integer "amount", null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -47,6 +63,12 @@ ActiveRecord::Schema.define(version: 2021_12_16_052441) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "order_detais", force: :cascade do |t|
     t.integer "products_id", null: false
     t.integer "order_id", null: false
@@ -62,34 +84,9 @@ ActiveRecord::Schema.define(version: 2021_12_16_052441) do
     t.string "name", null: false
     t.integer "shipping_cost", null: false
     t.integer "billing_amount", null: false
-  end
-
-  create_table "cart_products", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "costomer_id", null: false
-    t.integer "product_id", null: false
-    t.integer "amount", null: false
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.string "post_code", null: false
-    t.string "address", null: false
-    t.string "name", null: false
-    t.integer "shipping_cost", null: false
-    t.integer "billing_amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "customer_id"
-  end
-
-  create_table "addresses", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.string "name", null: false
-    t.string "post_code", null: false
-    t.string "address", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -99,10 +96,6 @@ ActiveRecord::Schema.define(version: 2021_12_16_052441) do
     t.string "price", null: false
     t.string "image", null: false
     t.boolean "sales_status", null: false
-  end
-
-  create_table "genres", force: :cascade do |t|
-    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
