@@ -27,7 +27,7 @@
               <%= customer.email %>
             </td>
             <td class="col-xs-2">
-              <% if customer.is_valid == true%>
+              <% if customer.withdrawal_status == true%>
                 <p><i class="fas fa-bullseye blue"></i>退会</p>
               <% else %>
                 <p><i class="fas fa-bullseye red"></i>有効</p>
