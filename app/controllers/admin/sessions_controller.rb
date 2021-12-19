@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 class Admin::SessionsController < Devise::SessionsController
+  # before_action :configure_permitted_parameters, if: :devise_controller?
+
+  # protected
+
+  # def configure_permitted_parameters
+  #   dvise_parameter_sanitizer.permit(:singn_up, key: [:name])
+  # end
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
