@@ -23,8 +23,8 @@ end
     sessions: 'customer/sessions'
   }
   
-  get 'about' => 'customer/products#about'
-  root 'customer/products#top'
+  get 'about' => 'customer/homes#about'
+  root 'customer/homes#top'
 
   scope module: :customer do
     resources :products,only: [:index,:show]
