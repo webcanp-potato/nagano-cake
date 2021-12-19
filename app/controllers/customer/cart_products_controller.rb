@@ -1,8 +1,8 @@
 class Customer::CartProductsController < ApplicationController
 
 
- before_action :set_cart_products, only: [:update, :destroy]
- before_action :authenticate_customer!
+ # before_action :set_cart_products, only: [:update, :destroy]
+ # before_action :authenticate_customer!
 
  def index
   @cart_products = current_customer.cart_products
@@ -19,7 +19,7 @@ class Customer::CartProductsController < ApplicationController
    redirect_to customers_cart_products_path
   else
    # flash[:alert] = "個数を選択してください"
-   render "customers/items/show"
+   render "customers/products/show"
   end
  end
 
