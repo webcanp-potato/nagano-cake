@@ -27,7 +27,7 @@ end
   root 'customer/homes#top'
 
   scope module: :customer do
-    resources :products,only: [:index,:show]
+    resources :products,only: [:index,:show,]
     get 'customer/edit' => 'customers#edit'
     patch 'customer' => 'customers#update'
 
