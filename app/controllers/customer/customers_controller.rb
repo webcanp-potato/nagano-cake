@@ -27,9 +27,9 @@ class Customer::CustomersController < ApplicationController
 
  def withdraw
     @customer = current_customer
-    @customer.update(is_valid: true)
+    @customer.update(withdrawal_status: true)
     reset_session
-    lash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
     redirect_to root_path
  end
  
