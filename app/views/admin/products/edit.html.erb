@@ -1,5 +1,5 @@
 <h5>商品編集</h5>
- <%= form_with(model: @product, url: admin_products_path, method: :post, local: true) do |f| %>
+ <%= form_with(model: @product, url: {action: "update"}, local: true) do |f| %>
         <table align="center">
         	<tr>
         		<th><%= f.label :image %></th>
@@ -14,8 +14,9 @@
             	<td><%= f.text_area :explanation %></td>
             </tr>
             <tr>
-            	<th></th>
-            	<td></td>
+                <th><%= f.label :ジャンル %></th>
+            	<td><%= f.collection_select(:genre_id, Genre.where(is_genres_status: true), :id, :name, prompt: "選択してください") %></td>
+            </tr>
             </tr>
             <tr>
             	<th><%= f.label :税抜価格 %></th>

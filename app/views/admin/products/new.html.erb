@@ -15,8 +15,8 @@
             	<td><%= f.text_area :explanation %></td>
             </tr>
             <tr>
-            	<th></th>
-            	<td></td>
+            	<th><%= f.label :ジャンル %></th>
+            	<td><%= f.collection_select(:genre_id, Genre.where(is_genres_status: true), :id, :name, prompt: "選択してください") %></td>
             </tr>
             <tr>
             	<th><%= f.label :税抜価格 %></th>

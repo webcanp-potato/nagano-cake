@@ -13,7 +13,7 @@
 		<% @products.each do |product| %>
 			<tr>
 				<th><%= product.id %></th>
-				<th><%= link_to product.name, admins_product_path(product) %></th>
+				<th><%= link_to product.name, admin_product_path(product) %></th>
 				<th><%= product.price %></th>
 				<th><%= product.genre.name %></th>
 				<th><% if product.sales_status == true %>
