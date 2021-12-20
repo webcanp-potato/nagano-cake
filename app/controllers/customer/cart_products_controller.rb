@@ -6,7 +6,7 @@ class Customer::CartProductsController < ApplicationController
 
  def index
   @cart_products = current_customer.cart_products
-  @total_price = @cart_products.sum{|cart_produt|cart_products.products.price*cart_product.amount*1.1}
+  # @total_price = @cart_products.sum{|cart_produt|cart_product.product.price*cart_product.amount*1.1}
  end
 
  def create

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-    devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+    devise_for :admin, skip: [:passwords] ,controllers: {
     sessions: "admin/sessions"
   }
   namespace :admin do
@@ -22,7 +22,7 @@ end
     registrations: "customer/registrations",
     sessions: 'customer/sessions'
   }
-  
+
   get 'about' => 'customer/homes#about'
   root 'customer/homes#top'
 
