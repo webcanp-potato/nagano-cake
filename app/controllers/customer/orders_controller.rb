@@ -84,11 +84,11 @@ class Customer::OrdersController < ApplicationController
   #以下order_detail
   cart_products = current_customer.cart_products
   cart_products.each do |cart_product|
-    order_detail = OrderDetai.new
+    order_detail = OrderDetail.new
     order_detail.order_id = order.id
-    order_detail.amount = cart_product.amount
-    order_detail.created_status = 0
-    order_detail.price = (cart_proudct.product.price * 1.1).floor
+    # order_detail.amount = cart_product.amount
+    # order_detail.created_status = 0
+    # order_detail.price = (cart_proudct.product.price * 1.1).floor
     order_detail.save
   end
 
