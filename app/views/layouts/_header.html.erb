@@ -6,9 +6,11 @@
       <%else%>
       <%= link_to "NaganoCAKE",root_path, class: "fas fa-birthday-cake navbar-brand" %>
       <%end%>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-
         <% if customer_signed_in? %>
 
         <li class ="header-name">

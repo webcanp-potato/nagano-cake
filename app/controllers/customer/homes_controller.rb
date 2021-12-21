@@ -1,9 +1,9 @@
 class Customer::HomesController < ApplicationController
   
   def top
-    @products = Product.all.order(created_at: :asc)
+    @products = Product.joins(:genre).where(genres: { is_genres_status: true }).where(sales_status: true).order("RANDOM()").limit(4)
     #=> :asc,古い順 :desc,新しい順
-    @genres = Genre.all
+    @genres = Genre.where(is_genres_status: true)
   end
 
   
