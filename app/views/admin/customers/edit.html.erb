@@ -2,7 +2,7 @@
 <div class="row">
   <div calss="col-xs-12">
     <h2 class="head-line title_h2 text-center">
-      <%= full_name(@customer) %>さんの会員情報編集
+      <%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集
     </h2>
 
   <%= form_with(model: @customer, url:admin_customer_path, local: true ,method: :patch) do |f| %>
@@ -46,10 +46,10 @@
 
       <div class="form-group col-xs-9">
         <%= f.label :"会員ステータス", class: "col-sm-4 control-label" %>
-        　<%= f.radio_button :is_valid, true %>
-        　<%= f.label :is_valid, "退会", {value: :true, style: "display: inline-block;"} %>
-        　<%= f.radio_button :is_valid, false %>
-        　<%= f.label :is_valid, "有効", {value: :false, style: "display: inline-block;"} %>
+        　<%= f.radio_button :withdrawal_status, true %>
+        　<%= f.label :withdrawal_status, "退会", {value: :true, style: "display: inline-block;"} %>
+        　<%= f.radio_button :withdrawal_status, false %>
+        　<%= f.label :withdrawal_status, "有効", {value: :false, style: "display: inline-block;"} %>
       </div>
     </div>
       <div class="actions  col-xs-9 col-xs-offset-4">
