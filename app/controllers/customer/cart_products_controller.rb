@@ -1,7 +1,7 @@
 class Customer::CartProductsController < ApplicationController
 
 
- before_action :set_cart_products, only: [:update, :destroy]
+ # before_action :set_cart_products, only: [:update, :destroy]
  before_action :authenticate_customer!
 
  def index
@@ -39,7 +39,7 @@ class Customer::CartProductsController < ApplicationController
  def destroy
   @cart_product = CartProduct.find(params[:id])
   @cart_product.destroy
-  flash.now[:alert] = "#{@cart_product.product.name}を削除しました"
+  flash[:alert] = "#{@cart_product.product.name}を削除しました"
   redirect_to customers_cart_products_path
  end
 
