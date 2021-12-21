@@ -48,10 +48,29 @@ class Admin::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    if @product.update(product_params)
-    redirect_to admin_product_path(@product.id)
+    # 商品のカラムが存在しているかどうかのif文
+    if params[:product][:price].present? && params[:product][:name].present? && params[:product][:explanation].present? && params[:product][:genre_id].present? && params[:product][:image].present?
+      # 価格は半角数字のみ登録可能で、それ以外は登録出来ないようにするif文
+      if params[:product][:price].to_s.ord >= 48 && params[:product][:price].to_s.ord <= 57
+        # 更新に成功した時のif文
+        if @product.update(product_params)
+          redirect_to admin_product_path(@product.id)
+          flash[:success] = "商品を更新しました"
+        else
+          flash[:danger] = "必要情報を入力してください"
+          render "admin/products/edit"
+        end
+      else
+        flash[:danger] = "価格は半角数字で記入してください"
+        # redirect_to edit_admins_product_path(@product.id)
+        render "admin/products/edit"
+      end
     else
-      render "admins/products/edit"
+      # 格カラムが空白で更新されなかった場合
+      unless @product.update(product_params)
+        flash[:danger] = "必要情報を入力してください"
+        render "admin/products/edit"
+      end
     end
   end
 

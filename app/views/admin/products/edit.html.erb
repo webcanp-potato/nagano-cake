@@ -1,4 +1,14 @@
 <h5>商品編集</h5>
+
+<% if @product.errors.any? %>
+    <h3><%= @product.errors.count %>error occurrence</h3><!--エラーメッセ-->
+    <ul>
+        <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
+
  <%= form_with(model: @product, url: {action: "update"}, local: true) do |f| %>
         <table align="center">
         	<tr>

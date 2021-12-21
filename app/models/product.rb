@@ -7,7 +7,7 @@ class Product < ApplicationRecord
 
   attachment :image
 
-  validates :image_id, presence: true
+  validates :image, presence: true
   validates :name, presence: true
   validates :explanation, presence: true
   validates :genre_id, presence: true
