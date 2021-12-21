@@ -7,9 +7,9 @@
 	<tbody>
 			<% genres.each do |genre| %>
 			<tr>
-        <td class="table-body">
-						<%= link_to genre.name, products_path(genre_id: genre.id),class:"genre_search_name" %>
-				 </td>
+		        <td class="table-body">
+				<%= link_to genre.name, products_path(genre_id: genre.id),class:"genre_search_name" %>
+				</td>
 			</tr>
 			<% end %>
 	</tbody>

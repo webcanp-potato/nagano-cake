@@ -14,8 +14,10 @@
  *= require_self
  */
  @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
  .jumbotron {
-  background-image: image-url("main3.png");
+  background-image: image-url("main4.png");
   background-size: cover;
 }
 
@@ -36,7 +38,7 @@
 
  // header
  #header {
-   padding: 10px 20px 20px 20px;
+   padding: 10px 10px 10px 10px;
    border-bottom: 1px solid #CCFFFF;
    background-color: #FFC0CB;
    position: sticky;
@@ -57,7 +59,7 @@ body {
   background-color: #FFE4E1;
 }
 .table {
-  background-color: #FFFFFF;
+  background-color: #fff9e8;
 }
 .title {
   font-size: 30px;
@@ -68,3 +70,42 @@ body {
 a {
   color: #444444;
 }
+
+.example {/*親div*/
+  position: relative;/*相対配置*/
+  }
+  
+.example p {
+  position: absolute;/*絶対配置*/
+  color: rgba(60,60,60, 0.8);
+  top: 40%;
+  left: 5%;
+  font-weight: bold;
+  font-size: 1.5em;
+  .wf-sawarabimincho { font-family: "Sawarabi Mincho"; }
+  }
+  
+.example a {
+  position: absolute;/*絶対配置*/
+  color: black;
+  top: 50%;
+  left: 5%;
+  font-weight: bold;
+  font-size: 1.5em;
+  font-family: 'Otomanopee One', sans-serif;
+  }
+
+.example p1 {
+  position: absolute;/*絶対配置*/
+  color: rgba(80,80,80, 0.8);
+  top: 50%;
+  left: 5%;
+  font-weight: bold;
+  font-size: 1.5em;
+  font-family: 'Otomanopee One', sans-serif;
+  }
+
+.example img {
+  width: 1200px;
+  height: 400px;
+  }
