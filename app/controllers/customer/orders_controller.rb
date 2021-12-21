@@ -27,14 +27,16 @@ class Customer::OrdersController < ApplicationController
   session[:order][:billing_amount]= sum + session[:order][:shipping_cost]
   session[:order][:order_status] = 0
   session[:order][:customer_id] = current_customer.id
+  # ラジオボタンで選択された支払方法のenum番号を渡している
+		session[:order][:payment_method] = params[:method].to_i
 
   #ラジオボタンの支払い方法のenum番号を渡している
-  destination = params[a_method].to_i
+  destination = params[:a_method].to_i
 
   #自分の住所を選択したとき
   if destination == 0
    session[:order][:post_code] = customer.post_code
-   session[:order][:address] = customer.adress
+   session[:order][:address] = customer.address
    session[:order][:name] = customer.last_name + customer.first_name
 
   elsif destination == 1
@@ -63,6 +65,7 @@ class Customer::OrdersController < ApplicationController
 
  def new
   @cart_products = current_customer.cart_products
+  # byebug
  end
 
  def thanx
