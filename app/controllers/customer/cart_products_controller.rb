@@ -1,8 +1,8 @@
 class Customer::CartProductsController < ApplicationController
 
 
- # before_action :set_cart_products, only: [:update, :destroy]
- # before_action :authenticate_customer!
+ before_action :set_cart_products, only: [:update, :destroy]
+ before_action :authenticate_customer!
 
  def index
   @cart_products = current_customer.cart_products
@@ -21,10 +21,10 @@ class Customer::CartProductsController < ApplicationController
   @product = Product.find(@cart_product.product_id)
 
   if @cart_product.save
-   # flash[:notice] = "#{@cart_item.item.name}をカートに追加しました。"
+   flash[:notice] = "#{@cart_product.product.name}をカートに追加しました。"
    redirect_to customers_cart_products_path
   else
-   # flash[:alert] = "個数を選択してください"
+   flash[:alert] = "個数を選択してください"
    render "customer/products/show"
   end
  end
@@ -39,14 +39,14 @@ class Customer::CartProductsController < ApplicationController
  def destroy
   @cart_product = CartProduct.find(params[:id])
   @cart_product.destroy
-  # flash.now[:alert] = "#{@cart_item.item.name}を削除しました"
+  flash.now[:alert] = "#{@cart_product.product.name}を削除しました"
   redirect_to customers_cart_products_path
  end
 
  def destroy_all
   @cart_product = CartProduct.all
   @cart_product.destroy_all
-  # flash[:alert] = "カートの商品を全て削除しました"
+  flash[:alert] = "カートの商品を全て削除しました"
   redirect_to customers_cart_products_path
  end
 
