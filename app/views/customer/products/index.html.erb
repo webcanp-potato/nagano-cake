@@ -3,36 +3,27 @@
         <%= render 'genre_serch_form', genres: @genres %>
     </div>
   	<div class="col-xs-9">
-  <% provide(:title, "商品一覧") %>
-
-		<h2 class="product-headline head-line title_h2 text-center">
-		商品一覧
-		<span>
-			(全<%= @products.total_count %>件中　<%= @products.count %>件)
-		</span>
-		</h2>
-			<div class="clearfix product-box">
-				<% @products.each do |product| %>
-				  <% if product.genre. == true %>
-                      <div class="product-container">
-                    
-                          <%= link_to product_path(product.id), class: "btn-link", :style=>"color:#0099FF;" do %>
-                          <div id="img_field" class="product">
-                            <%= attachment_image_tag(product, :image, size: "180x130", fallback: "no_image.jpg") %>
-                          </div>
-                          <p class="products-name">
-                            <%= product.name %>
-                          </p>
-                          <% end %>
-                        <% if product.sales_status == true %>
-                          <p>¥<%= product.tax_out_price.to_s(:delimited) %></p>
-                        <% elsif product.sales_status == false %>
-                          <p class="soldout">売り切れ中</p>
-                        <% end %>
-                      </div>
-                    <% end %>
-				<% end %>
-			</div>
-			<div class="text-center"><%= paginate(@products) %></div>
-	</div>
+  <h2><%= "#{@index}一覧 （全#{@products_all.count}件）" %></h2>
+      <ul class="content1 row">
+        <% @products.each do |product| %>
+        <div class="container">
+                <table class="table">
+                    <tr>
+                        <th><%= link_to product_path(product) do %>
+                            <%= attachment_image_tag(product, :image,size: "180x130", fallback: "no_image.jpg") %>
+                            <% end %>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><%= link_to product.name, product_path(product) %></th>
+                    </tr>
+                    <tr>
+                        <th>￥<%= (product.price * 1.1).to_i.to_s(:delimited) %></th>
+                    </tr>
+                </table>
+        <% end %>
+        </ul>
+        <%= paginate @products %>
+        </div>
+    </div>
 </div>
