@@ -1,4 +1,9 @@
-<h5>商品編集</h5>
+ <div class='col-lg-2'>
+    <h5>商品編集</h5>
+</div>
+
+<div class="danger"><%= flash[:danger] %></div>
+
  <%= form_with(model: @product, url: {action: "update"}, local: true) do |f| %>
         <table align="center">
         	<tr>
@@ -33,7 +38,7 @@
             </tr>
             <tr>
                 <td>
-                    <%= f.submit "変更を保存",class:"btn btn-primary col-xs-12" %>
+                    <%= f.submit "変更を保存",class:"btn btn-outline-dark" %>
                     <% end %>
                 </td>
             </tr>
