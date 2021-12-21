@@ -45,7 +45,7 @@ end
 
       resources :orders,only: [:new,:index,:show,:create] do
         collection do
-          post 'confirm'
+          get 'confirm'
           get 'thanx'
         end
       end

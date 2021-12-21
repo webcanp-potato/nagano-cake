@@ -15,9 +15,9 @@
           </tr>
          </thead>
          <tbody>
-           <% @cart_products.each do |cart_item| %>
+           <% @cart_products.each do |cart_product| %>
           <tr>
-            <td class="col-xs-3"><%= cart_prooduct.product.name %></td>
+            <td class="col-xs-3"><%= cart_product.product.name %></td>
             <td class="col-xs-2">¥<%= ((cart_product.product.price * 1.1).floor).to_s(:delimited, delimiter: ',') %></td>
             <td class="col-xs-1">
               <%= form_for(cart_product, url: customers_cart_product_path(cart_product)) do |c| %>
