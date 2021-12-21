@@ -1,15 +1,4 @@
-
-<div class='col-lg-12'>
-    <h4>商品新規登録</h4>
-</div>
-<% if @product.errors.any? %>
-    <h3><%= @product.errors.count %>error occurrence</h3><!--エラーメッセ-->
-    <ul>
-        <% @product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
-<% end %>
+<h5>商品新規登録</h5>
     <%= form_with(model: @product, url: admin_products_path, method: :post, local: true) do |f| %>
         <table align="center">
         	<tr>
@@ -48,4 +37,3 @@
                 </td>
             </tr>
         </table>
-
