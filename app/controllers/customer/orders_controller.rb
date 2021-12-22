@@ -73,7 +73,7 @@ class Customer::OrdersController < ApplicationController
   order.save
 
   if session[:new_address]
-   shipping_address = current_customer.address.new
+   shipping_address = current_customer.addresses.new
    shipping_address.post_code = order.post_code
    shipping_address.address = order.address
    shipping_address.name = order.name

@@ -9,16 +9,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" rel="stylesheet">
+    <!--.wf-sawarabimincho { font-family: "Sawarabi Mincho"; }-->
   </head>
 
-  <body id= "wrapper">
+  <body id = "wrapper">
     <div id = "header">
       <%= render "layouts/header" %>
     </div>
-    <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <%= yield %>
-    </div>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <%= yield %>
+        </div>
+      </div>
     <%= render "layouts/footer" %>
   </body>
 </html>

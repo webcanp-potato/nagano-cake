@@ -16,7 +16,6 @@ class Customer::CustomersController < ApplicationController
       flash[:success] = "個人情報を編集しました"
       redirect_to customers_path
     else
-      flash[:danger] = '個人情報の編集に失敗しました'
       render :edit and return
     end
  end
