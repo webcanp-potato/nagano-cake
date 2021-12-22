@@ -47,7 +47,7 @@
             <tr>
               <th class="info">商品合計</th>
               <td class="col-xs-5">
-                ¥<%= (@order.total_payment - @order.shipping_cost).to_s(:delimited, delimiter: ',') %>
+                ¥<%= (@order.billing_amount - @order.shipping_cost).to_s(:delimited, delimiter: ',') %>
               </td>
             </tr>
             <tr>
