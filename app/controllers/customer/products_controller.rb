@@ -19,7 +19,7 @@ before_action :authenticate_customer!, only: [:show]
  def show
    @products = Product.all
    @product = Product.find(params[:id])
-   @cart_products = CartProduct.new
+   @cart_product = CartProduct.new
    @genres = Genre.all
  end
 

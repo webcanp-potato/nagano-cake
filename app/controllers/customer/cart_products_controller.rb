@@ -25,7 +25,7 @@ class Customer::CartProductsController < ApplicationController
    redirect_to customers_cart_products_path
   else
    flash[:alert] = "個数を選択してください"
-   render "customer/products/show"
+   render template: "customer/products/show"
   end
  end
 
@@ -39,7 +39,7 @@ class Customer::CartProductsController < ApplicationController
  def destroy
   @cart_product = CartProduct.find(params[:id])
   @cart_product.destroy
-  flash.now[:alert] = "#{@cart_product.product.name}を削除しました"
+  flash[:alert] = "#{@cart_product.product.name}を削除しました"
   redirect_to customers_cart_products_path
  end
 
