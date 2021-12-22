@@ -15,7 +15,7 @@ class Admin::OrderDetailsController < ApplicationController
   private
 
   def order_detail_params
-    params.require(:order_detail).permit(:produciton_status)
+    params.require(:order_detail).permit(:created_status)
   end
 
 
