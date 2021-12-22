@@ -1,14 +1,15 @@
+
 <% provide(:title, "登録情報編集") %>
+<% if @customer.errors.any? %>
+           <% @customer.errors.full_messages.each do |message| %>
+            <%= message %>
+           <% end %>
+        <% end %>
 <div class="row">
   <div class="col-xs-12">
 
     <h2 class="head-line title_h2 text-center">登録情報編集</h2>
-    <% if @customer.errors.any? %>
-  <%= @customer.errors.count %>件のエラーが発生しました
-  <% @customer.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
+    
     <%= form_with model:@customer, url:customer_path, local: true ,method: :patch do |f| %>
       <%#= render "layouts/error_messages", resource: @customer %>
 
