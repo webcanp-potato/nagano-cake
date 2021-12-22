@@ -26,7 +26,7 @@ before_action :authenticate_customer!, only: [:show]
   private
   def product_params
 		parmas.require(:product).permit(:name, :explanation, :price, :image, :sales_status)
-	 end
+	end
 
 
 end
