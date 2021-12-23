@@ -7,7 +7,6 @@ class Customer::CartProductsController < ApplicationController
  def index
   @cart_products = current_customer.cart_products
   @total_price = @cart_products.sum{|cart_product|cart_product.product.price*cart_product.amount*1.1}
-
   @genres = Genre.all
 
  end
