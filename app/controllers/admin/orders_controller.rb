@@ -24,9 +24,14 @@ class Admin::OrdersController < ApplicationController
 
 	def update
 		@order = Order.find(params[:id])
+		@order_details = @order.order_details
 		if @order.update(order_params)
 		   flash[:success] = "注文ステータスを変更しました"
+
+		   if @order.order_status == "入金確認"#注文ステータスが入金確認なら下の事をする
+		       @order_details.update_all(created_status: 1) #製作ステータスを「製作待ちに」　更新
 		   redirect_to admin_order_path(@order)
+		   end
 		else
 		   render "show"
 		end
