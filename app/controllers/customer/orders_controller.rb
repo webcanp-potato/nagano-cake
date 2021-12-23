@@ -86,9 +86,10 @@ class Customer::OrdersController < ApplicationController
   cart_products.each do |cart_product|
     order_detail = OrderDetail.new
     order_detail.order_id = order.id
-    # order_detail.amount = cart_product.amount
-    # order_detail.created_status = 0
-    # order_detail.price = (cart_proudct.product.price * 1.1).floor
+    order_detail.order_quantity = cart_product.amount
+    order_detail.created_status = 0
+    order_detail.price = (cart_product.product.price * 1.1).floor
+    order_detail.product_id = cart_product.product_id
     order_detail.save
   end
 
