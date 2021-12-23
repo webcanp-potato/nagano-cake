@@ -2,7 +2,7 @@
 <% provide(:title, "登録情報編集") %>
 <% if @customer.errors.any? %>
            <% @customer.errors.full_messages.each do |message| %>
-            <%= message %>
+            <%= message %><br>
            <% end %>
         <% end %>
 <div class="row">
